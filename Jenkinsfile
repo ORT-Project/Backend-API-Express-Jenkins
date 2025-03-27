@@ -15,7 +15,7 @@ pipeline {
         }
         stage('Build') {
                     steps {
-                        sh 'docker build -t backend-api-express .'
+                        sh 'docker build -t backend-api-express-jenkins .'
                     }
                 }
         stage('Test') {
