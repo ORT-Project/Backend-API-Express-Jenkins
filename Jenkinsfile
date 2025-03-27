@@ -28,7 +28,7 @@ pipeline {
             steps {
                 withCredentials([usernamePassword(credentialsId: 'docker-credentials', usernameVariable: 'DOCKER_USERNAME', passwordVariable: 'DOCKER_PASSWORD')]) {
                     sh 'echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_USERNAME" --password-stdin'
-                    sh 'docker tag Backend-API-Express-Jenkins BluedyRimuru/backend-api:latest'
+                    sh 'docker tag backend-api-express-jenkins BluedyRimuru/backend-api:latest'
                     sh 'docker push BluedyRimuru/backend-api:latest'
                 }
             }
