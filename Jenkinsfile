@@ -7,7 +7,7 @@ pipeline {
                     $class: 'GitSCM',
                     branches: [[name: '*/main']],
                     userRemoteConfigs: [[
-                        url: 'https://github.com/ort-montreuil/Backend-API-Express-Jenkins',
+                        url: 'https://github.com/ORT-Project/Backend-API-Express-Jenkins',
                         credentialsId: 'github-credentials'
                     ]]
                 ])
@@ -28,8 +28,8 @@ pipeline {
             steps {
                 withCredentials([usernamePassword(credentialsId: 'docker-credential', usernameVariable: 'DOCKER_USERNAME', passwordVariable: 'DOCKER_PASSWORD')]) {
                     sh 'echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_USERNAME" --password-stdin'
-                    sh 'docker tag backend-api-express kthayendran/backend-api:latest'
-                    sh 'docker push kthayendran/backend-api:latest'
+                    sh 'docker tag Backend-API-Express-Jenkins BluedyRimuru/backend-api:latest'
+                    sh 'docker push BluedyRimuru/backend-api:latest'
                 }
             }
         }
